@@ -19,7 +19,7 @@ A movie app built with BloC and Clean Architecture
 ## Core Concepts
     - Dependency injection
         > dependency injection is a technique in which an object receives other objects that it depends on. These other objects are called dependencies. In the typical "using" relationship the receiving object is called a client and the passed (that is, "injected") object is called a service.
-        ![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fa-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f%2F&psig=AOvVaw2vgjvg0FmajjfpiCTuqSY7&ust=1612286586571000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjG8tuZye4CFQAAAAAdAAAAABAD)
+    ![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fa-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f%2F&psig=AOvVaw2vgjvg0FmajjfpiCTuqSY7&ust=1612286586571000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjG8tuZye4CFQAAAAAdAAAAABAD)
 
 ## Folder Structure
 
