@@ -17,9 +17,12 @@ A movie app built with BloC and Clean Architecture
 > Independent of any external agency. In fact your business rules simply don’t know anything at all about the outside world.
 
 ## Core Concepts
-    - Dependency injection
-        > dependency injection is a technique in which an object receives other objects that it depends on. These other objects are called dependencies. In the typical "using" relationship the receiving object is called a client and the passed (that is, "injected") object is called a service.
-        ![](https://www.edureka.co/blog/wp-content/uploads/2019/06/Types-of-Classes-What-is-Dependency-Injection-Edureka.png)
+
+### Dependency injection
+
+> dependency injection is a technique in which an object receives other objects that it depends on. These other objects are called dependencies. In the typical "using" relationship the receiving object is called a client and the passed (that is, "injected") object is called a service.
+
+![](https://www.edureka.co/blog/wp-content/uploads/2019/06/Types-of-Classes-What-is-Dependency-Injection-Edureka.png)
 
 ## Folder Structure
 
