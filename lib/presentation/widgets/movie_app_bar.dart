@@ -14,7 +14,9 @@ class MovieAppBar extends StatelessWidget {
           children: [
             IconButton(
                 icon: SvgPicture.asset('assets/svgs/menu.svg'),
-                onPressed: () {}),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                }),
             Expanded(
               child: Logo(height: Sizes.dimen_12.w),
             ),
