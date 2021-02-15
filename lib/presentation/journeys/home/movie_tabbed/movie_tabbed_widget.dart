@@ -2,6 +2,7 @@ import 'package:blocbuster/common/constants/size_constants.dart';
 import 'package:blocbuster/common/extensions/size_extension.dart';
 import 'package:blocbuster/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
 import 'package:blocbuster/presentation/journeys/home/movie_tabbed/tab_title_widget.dart';
+import 'package:blocbuster/presentation/widgets/app_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,9 +56,21 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
                 ],
               ),
               if (state is MovieTabChanged)
-                Expanded(
-                  child: MovieListViewBuilder(movies: state.movies),
-                ),
+                state.movies?.isEmpty ?? true
+                    ? Expanded(
+                        child: Center(
+                          child: Text("No movies under this section"),
+                        ),
+                      )
+                    : Expanded(
+                        child: MovieListViewBuilder(movies: state.movies),
+                      ),
+              if (state is MovieTabLoadError)
+                AppErrorWidget(
+                  errorType: state.errorType,
+                  onPressed: () => movieTabbedBloc.add(MovieTabChangedEvent(
+                      currentTabIndex: state.currentTabIndex)),
+                )
             ],
           ),
         );

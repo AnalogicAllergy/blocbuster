@@ -2,8 +2,10 @@ import 'package:blocbuster/common/constants/size_constants.dart';
 import 'package:blocbuster/common/extensions/size_extension.dart';
 import 'package:blocbuster/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:blocbuster/presentation/journeys/drawer/navigation_list_item.dart';
+import 'package:blocbuster/presentation/widgets/app_dialog.dart';
 import 'package:blocbuster/presentation/widgets/logo.dart';
 import 'package:flutter/material.dart';
+import 'package:wiredash/wiredash.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer();
@@ -39,14 +41,33 @@ class NavigationDrawer extends StatelessWidget {
           ),
           NavigationListItem(
             title: "Feedback",
-            onPressed: () {},
+            onPressed: () {
+              //close the nav drawer before invoking wiredash
+              Navigator.of(context).pop();
+              Wiredash.of(context).show();
+            },
           ),
           NavigationListItem(
             title: "About",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pop();
+              _showDialog(context);
+            },
           ),
         ],
       )),
     );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        child: AppDialog(
+          title: "BloCBuster",
+          buttonText: "Okay",
+          description: "Made with TMDB API with Love",
+          image: Image.asset('assets/pngs/tmdb_logo.png',
+              height: Sizes.dimen_32.h),
+        ));
   }
 }

@@ -4,6 +4,7 @@ import 'package:blocbuster/presentation/blocs/movie_carousel/movie_carousel_bloc
 import 'package:blocbuster/presentation/blocs/movie_tabbed/movie_tabbed_bloc.dart';
 import 'package:blocbuster/presentation/journeys/drawer/navigation_drawer.dart';
 import 'package:blocbuster/presentation/journeys/home/movie_tabbed/movie_tabbed_widget.dart';
+import 'package:blocbuster/presentation/widgets/app_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -67,6 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         heightFactor: 0.4,
                         child: MovieTabbedWidget())
                   ],
+                );
+              } else if (state is MovieCarouselError) {
+                return AppErrorWidget(
+                  onPressed: () => movieCarouselBloc.add(CarouselLoadEvent()),
+                  errorType: state.appErrorType,
                 );
               }
               return SizedBox.shrink();
