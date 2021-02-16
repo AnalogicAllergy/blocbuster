@@ -33,6 +33,7 @@ dependencies:
   google_fonts: ^1.1.2
   http: ^0.12.2
   wiredash: ^0.4.2
+  youtube_player_flutter: ^7.0.0+7
 
 
 dev_dependencies:
