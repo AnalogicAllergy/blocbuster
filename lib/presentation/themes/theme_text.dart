@@ -41,4 +41,5 @@ extension TextThemeExtension on TextTheme {
   TextStyle get violetHeadline6 => headline6.copyWith(color: AppColor.violet);
   TextStyle get vulcanBodyText2 =>
       bodyText2.copyWith(color: AppColor.vulcan, fontWeight: FontWeight.w600);
+  TextStyle get greyCaption => caption.copyWith(color: Colors.grey);
 }
