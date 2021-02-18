@@ -16,6 +16,7 @@ class MovieCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String imageUrl = '${ApiConstants.BASE_IMAGE_URL}$posterPath';
     return Material(
       elevation: 32,
       borderRadius: BorderRadius.circular(Sizes.dimen_16.w),
@@ -33,7 +34,8 @@ class MovieCardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(Sizes.dimen_16.w),
           child: CachedNetworkImage(
               fit: BoxFit.cover,
-              imageUrl: '${ApiConstants.BASE_IMAGE_URL}$posterPath'),
+              placeholder: (context, url) => CircularProgressIndicator(),
+              imageUrl: imageUrl),
         ),
       ),
     );
