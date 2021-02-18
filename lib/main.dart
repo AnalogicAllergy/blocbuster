@@ -1,3 +1,4 @@
+import 'package:blocbuster/data/tables/movie_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
@@ -15,6 +16,7 @@ void main() async {
   final appDocumentsDirectory =
       await path_provider.getApplicationDocumentsDirectory();
   Hive.init(appDocumentsDirectory.path);
+  Hive.registerAdapter(MovieTableAdapter());
 
   unawaited(getIt.init());
   runApp(MovieApp());

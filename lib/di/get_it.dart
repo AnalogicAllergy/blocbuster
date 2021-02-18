@@ -79,7 +79,8 @@ Future init() async {
   getItInstance.registerFactory(() => MovieDetailsBloc(
       getMovieDetails: getItInstance(),
       castBloc: getItInstance(),
-      videosBloc: getItInstance()));
+      videosBloc: getItInstance(),
+      favoritesBloc: getItInstance()));
 
   getItInstance.registerFactory(
     () => MovieTabbedBloc(

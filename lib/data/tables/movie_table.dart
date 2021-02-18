@@ -12,7 +12,14 @@ class MovieTable extends MovieEntity {
   @HiveField(2)
   final String posterPath;
 
-  MovieTable({this.id, this.title, this.posterPath});
+  MovieTable({this.id, this.title, this.posterPath})
+      : super(
+            id: id,
+            title: title,
+            posterPath: posterPath,
+            releaseDate: '',
+            backdropPath: '',
+            voteAverage: 0);
 
   factory MovieTable.fromMovieEntity(MovieEntity movieEntity) {
     return MovieTable(

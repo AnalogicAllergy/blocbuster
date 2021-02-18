@@ -1,3 +1,4 @@
+import 'package:blocbuster/domain/entities/movie_detail_entity.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -26,4 +27,15 @@ class MovieEntity extends Equatable {
 
   @override
   bool get stringify => true;
+
+  factory MovieEntity.fromMovieDetailEntity(MovieDetailEntity movieEntity) {
+    return MovieEntity(
+      id: movieEntity.id,
+      title: movieEntity.title,
+      posterPath: movieEntity.posterPath,
+      releaseDate: movieEntity.releaseDate,
+      backdropPath: movieEntity.backdropPath,
+      voteAverage: movieEntity.voteAverage,
+    );
+  }
 }

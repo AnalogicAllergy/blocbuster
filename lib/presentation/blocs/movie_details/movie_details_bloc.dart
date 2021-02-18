@@ -4,8 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:blocbuster/domain/entities/app_error.dart';
 import 'package:blocbuster/domain/entities/movie_detail_entity.dart';
 import 'package:blocbuster/domain/entities/movie_params.dart';
+import 'package:blocbuster/domain/usecases/check_if_favourite_movie.dart';
 import 'package:blocbuster/domain/usecases/get_movie_detail.dart';
 import 'package:blocbuster/presentation/blocs/cast/cast_bloc.dart';
+import 'package:blocbuster/presentation/blocs/favorites/favorites_bloc.dart';
 import 'package:blocbuster/presentation/blocs/videos/videos_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -18,12 +20,14 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
   MovieDetailsBloc(
       {@required this.videosBloc,
       @required this.castBloc,
+      @required this.favoritesBloc,
       @required this.getMovieDetails})
       : super(InitialMovieDetailsState());
 
   final GetMovieDetail getMovieDetails;
   final CastBloc castBloc;
   final VideosBloc videosBloc;
+  final FavoritesBloc favoritesBloc;
 
   @override
   Stream<MovieDetailsState> mapEventToState(MovieDetailsEvent event) async* {
@@ -32,6 +36,7 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
           await getMovieDetails(MovieParams(id: event.movieId));
       yield eitherResponse.fold(
           (l) => MovieDetailError(), (movie) => MovieDetailLoaded(movie));
+      favoritesBloc.add(CheckIfFavouriteMovieEvent(movieId: event.movieId));
       castBloc.add(LoadCastEvent(movieId: event.movieId));
       videosBloc.add(VideosLoadEvent(movieId: event.movieId));
     }

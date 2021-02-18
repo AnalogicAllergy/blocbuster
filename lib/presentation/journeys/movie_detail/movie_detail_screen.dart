@@ -2,6 +2,7 @@ import 'package:blocbuster/common/constants/size_constants.dart';
 import 'package:blocbuster/common/extensions/size_extension.dart';
 import 'package:blocbuster/di/get_it.dart';
 import 'package:blocbuster/presentation/blocs/cast/cast_bloc.dart';
+import 'package:blocbuster/presentation/blocs/favorites/favorites_bloc.dart';
 import 'package:blocbuster/presentation/blocs/movie_details/movie_details_bloc.dart';
 import 'package:blocbuster/presentation/blocs/videos/videos_bloc.dart';
 import 'package:blocbuster/presentation/journeys/movie_detail/videos_widget.dart';
@@ -27,6 +28,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   MovieDetailsBloc _movieDetailsBloc;
   CastBloc _castBloc;
   VideosBloc _videosBloc;
+  FavoritesBloc _favoritesBloc;
   @override
   void initState() {
     // TODO: implement initState
@@ -34,6 +36,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     _movieDetailsBloc = getItInstance<MovieDetailsBloc>();
     _castBloc = _movieDetailsBloc.castBloc;
     _videosBloc = _movieDetailsBloc.videosBloc;
+    _favoritesBloc = _movieDetailsBloc.favoritesBloc;
 
     _movieDetailsBloc
         .add(MovieDetailLoadEvent(movieId: widget.movieArguments.movieId));
@@ -45,6 +48,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     _movieDetailsBloc?.close();
     _castBloc?.close();
     _videosBloc?.close();
+    _favoritesBloc?.close();
     super.dispose();
   }
 
@@ -55,7 +59,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
         providers: [
           BlocProvider.value(value: _movieDetailsBloc),
           BlocProvider.value(value: _castBloc),
-          BlocProvider.value(value: _videosBloc)
+          BlocProvider.value(value: _videosBloc),
+          BlocProvider.value(value: _favoritesBloc)
         ],
         child: BlocBuilder<MovieDetailsBloc, MovieDetailsState>(
             builder: (context, state) {

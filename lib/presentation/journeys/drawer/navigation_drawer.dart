@@ -2,6 +2,7 @@ import 'package:blocbuster/common/constants/size_constants.dart';
 import 'package:blocbuster/common/extensions/size_extension.dart';
 import 'package:blocbuster/presentation/journeys/drawer/navigation_expanded_list_item.dart';
 import 'package:blocbuster/presentation/journeys/drawer/navigation_list_item.dart';
+import 'package:blocbuster/presentation/journeys/favorites/favorites_screen.dart';
 import 'package:blocbuster/presentation/widgets/app_dialog.dart';
 import 'package:blocbuster/presentation/widgets/logo.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,10 @@ class NavigationDrawer extends StatelessWidget {
           ),
           NavigationListItem(
             title: "Favorite movies",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => FavoritesScreen()));
+            },
           ),
           NavigationExpandedListItem(
             title: "Language",
