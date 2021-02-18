@@ -4,7 +4,7 @@ A movie app built with BloC and Clean Architecture
 
 ## App working
 
-[Youtube](https://youtu.be/BCd5QJAnq8k)
+![demo](screenshots/demo.gif)
 
 ## Clean Architecture
 
