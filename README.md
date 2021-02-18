@@ -26,19 +26,4 @@ A movie app built with BloC and Clean Architecture
 
 ## Folder Structure
 
-- data
-  - core
-  - data_sources
-  - models
-  - repositories
-  - tables
-- di
-- domain
-  - entities
-  - repositories
-  - usecases
-- presentation
-  - blocs
-  - journeys
-  - themes
-  - widgets
+![](screenshots/folders.png)
