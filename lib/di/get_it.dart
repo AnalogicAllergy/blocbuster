@@ -1,16 +1,22 @@
 import 'package:blocbuster/data/core/api_client.dart';
+import 'package:blocbuster/data/data_sources/movie_local_data_source.dart';
 import 'package:blocbuster/data/data_sources/movie_remote_data_source.dart';
 import 'package:blocbuster/data/repositories/movie_repository_impl.dart';
 import 'package:blocbuster/domain/repositories/movie_repository.dart';
+import 'package:blocbuster/domain/usecases/check_if_favourite_movie.dart';
+import 'package:blocbuster/domain/usecases/delete_favorite_movie.dart';
 import 'package:blocbuster/domain/usecases/get_cast_details.dart';
 import 'package:blocbuster/domain/usecases/get_coming_soon.dart';
+import 'package:blocbuster/domain/usecases/get_favorites_movies.dart';
 import 'package:blocbuster/domain/usecases/get_movie_detail.dart';
 import 'package:blocbuster/domain/usecases/get_playing_now.dart';
 import 'package:blocbuster/domain/usecases/get_popular.dart';
 import 'package:blocbuster/domain/usecases/get_search_movies.dart';
 import 'package:blocbuster/domain/usecases/get_trending.dart';
 import 'package:blocbuster/domain/usecases/get_videos.dart';
+import 'package:blocbuster/domain/usecases/save_movie.dart';
 import 'package:blocbuster/presentation/blocs/cast/cast_bloc.dart';
+import 'package:blocbuster/presentation/blocs/favorites/favorites_bloc.dart';
 import 'package:blocbuster/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
 import 'package:blocbuster/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
 import 'package:blocbuster/presentation/blocs/movie_details/movie_details_bloc.dart';
@@ -28,6 +34,9 @@ Future init() async {
       .registerLazySingleton<ApiClient>(() => ApiClient(getItInstance()));
   getItInstance.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(getItInstance()));
+  //hive
+  getItInstance.registerLazySingleton<MovieLocalDataSource>(
+      () => MovieLocalDataSourceImpl());
   getItInstance
       .registerLazySingleton<GetTrending>(() => GetTrending(getItInstance()));
   getItInstance
@@ -38,14 +47,24 @@ Future init() async {
       () => GetComingSoon(getItInstance()));
   getItInstance.registerLazySingleton<GetMovieDetail>(
       () => GetMovieDetail(getItInstance()));
-  getItInstance.registerLazySingleton<MovieRepository>(
-      () => MovieRepositoryImpl(getItInstance()));
+  getItInstance.registerLazySingleton<MovieRepository>(() =>
+      MovieRepositoryImpl(
+          remoteDataSource: getItInstance(), localDataSource: getItInstance()));
   getItInstance.registerLazySingleton<GetCastDetails>(
       () => GetCastDetails(getItInstance()));
   getItInstance
       .registerLazySingleton<GetVideos>(() => GetVideos(getItInstance()));
   getItInstance.registerLazySingleton<GetSearchMovies>(
       () => GetSearchMovies(getItInstance()));
+  //hive usecases
+  getItInstance.registerLazySingleton<SaveMovie>(
+      () => SaveMovie(movieRepository: getItInstance()));
+  getItInstance.registerLazySingleton<GetFavoriteMovies>(
+      () => GetFavoriteMovies(movieRepository: getItInstance()));
+  getItInstance.registerLazySingleton<DeleteFavoriteMovie>(
+      () => DeleteFavoriteMovie(movieRepository: getItInstance()));
+  getItInstance.registerLazySingleton<CheckIfFavouriteMovie>(
+      () => CheckIfFavouriteMovie(movieRepository: getItInstance()));
 
   getItInstance.registerFactory(() => MovieBackdropBloc());
   getItInstance.registerFactory(() => MovieCarouselBloc(
@@ -68,4 +87,10 @@ Future init() async {
         getPlayingNow: getItInstance(),
         getComingSoon: getItInstance()),
   );
+  //favorites bloc
+  getItInstance.registerFactory(() => FavoritesBloc(
+      checkIfFavouriteMovie: getItInstance(),
+      deleteFavoriteMovie: getItInstance(),
+      getFavoriteMovies: getItInstance(),
+      saveMovie: getItInstance()));
 }
