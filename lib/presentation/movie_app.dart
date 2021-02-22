@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:blocbuster/common/screenutils/screen_utils.dart';
 import 'package:blocbuster/presentation/wiredash_app.dart';
-import 'package:flutter/material.dart';
 
 import 'journeys/home/home_screen.dart';
 import 'themes/app_color.dart';
@@ -22,6 +23,9 @@ class _MovieAppState extends State<MovieApp> {
       child: MaterialApp(
         navigatorKey: _navigatorKey,
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+        ],
         title: "Movie App",
         theme: ThemeData(
             primaryColor: AppColor.vulcan,

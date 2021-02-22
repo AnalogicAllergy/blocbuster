@@ -5,6 +5,7 @@ import 'package:blocbuster/presentation/journeys/home/movie_tabbed/tab_title_wid
 import 'package:blocbuster/presentation/widgets/app_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // remove the comment for this line
 
 import 'movie_list_view_builder.dart';
 import 'movie_tabbed_constants.dart';
@@ -59,7 +60,7 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget>
                 state.movies?.isEmpty ?? true
                     ? Expanded(
                         child: Center(
-                          child: Text("No movies under this section"),
+                          child: Text(AppLocalizations.of(context).noMovies),
                         ),
                       )
                     : Expanded(

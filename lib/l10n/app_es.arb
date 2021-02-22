@@ -1,0 +1,23 @@
+{
+  "about": "Acerca de",
+  "appName": "BloCBuster",
+  "cast": "Elenco",
+  "errorLoading": "Error al cargar",
+  "failedTmdbAPI": "Error al conectarse a la API de TMDB",
+  "failedTmdbInternet": "Error al conectarse a Internet",
+  "favoriteMovies": "Películas favoritas",
+  "favorites": "Favoritos",
+  "feedback": "Comentarios",
+  "fetchMoviesError": "No se pudo recuperar ninguna película con un término de búsqueda dado",
+  "language": "Idioma",
+  "madeTMDB": "Hecho con TMDB API con amor",
+  "noFavorites": "No hay favoritos añadidos hasta ahora",
+  "noMovies": "No hay películas en esta sección",
+  "now": "Ahora",
+  "okay": "Aceptar",
+  "popular": "Populares",
+  "report": "Reportar",
+  "retry": "Reintentar",
+  "soon": "Luego",
+  "watchTrailers": "Ver trailers"
+}

@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'big_poster.dart';
 import 'cast_widget.dart';
 import 'movie_detail_arguments.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // remove the comment for this line
 
 class MovieDetailScreen extends StatefulWidget {
   final MovieDetailArguments movieArguments;
@@ -85,7 +86,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                         horizontal: Sizes.dimen_16.w,
                         vertical: Sizes.dimen_8.h),
                     child: Text(
-                      "Cast",
+                      AppLocalizations.of(context).cast,
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),

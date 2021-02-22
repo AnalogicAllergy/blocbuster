@@ -79,3 +79,4 @@ Overall, Bloc attempts to make state changes predictable by regulating when a st
 - [http](https://pub.dev/packages/http)
 - [wiredash](https://pub.dev/packages/wiredash)
 - [youtube_player_flutter](https://pub.dev/packages/youtube_player_flutter)
+- [Localazy](https://localazy.com/)

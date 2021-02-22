@@ -7,6 +7,7 @@ import 'package:blocbuster/presentation/widgets/app_dialog.dart';
 import 'package:blocbuster/presentation/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:wiredash/wiredash.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // remove the comment for this line
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer();
@@ -32,19 +33,19 @@ class NavigationDrawer extends StatelessWidget {
             child: Logo(height: Sizes.dimen_20.h),
           ),
           NavigationListItem(
-            title: "Favorite movies",
+            title: AppLocalizations.of(context).favoriteMovies,
             onPressed: () {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => FavoritesScreen()));
             },
           ),
           NavigationExpandedListItem(
-            title: "Language",
+            title: AppLocalizations.of(context).language,
             onPressed: () {},
             children: ["English", "Spanish"],
           ),
           NavigationListItem(
-            title: "Feedback",
+            title: AppLocalizations.of(context).feedback,
             onPressed: () {
               //close the nav drawer before invoking wiredash
               Navigator.of(context).pop();
@@ -52,7 +53,7 @@ class NavigationDrawer extends StatelessWidget {
             },
           ),
           NavigationListItem(
-            title: "About",
+            title: AppLocalizations.of(context).about,
             onPressed: () {
               Navigator.of(context).pop();
               _showDialog(context);
@@ -67,9 +68,9 @@ class NavigationDrawer extends StatelessWidget {
     showDialog(
         context: context,
         child: AppDialog(
-          title: "BloCBuster",
-          buttonText: "Okay",
-          description: "Made with TMDB API with Love",
+          title: AppLocalizations.of(context).appName,
+          buttonText: AppLocalizations.of(context).okay,
+          description: AppLocalizations.of(context).madeTMDB,
           image: Image.asset('assets/pngs/tmdb_logo.png',
               height: Sizes.dimen_32.h),
         ));

@@ -1,0 +1,87 @@
+{
+  "@@locale": "en",
+  "appName": "BloCBuster",
+  "@appName": {
+    "description": "Name of the app"
+  },
+  "noMovies": "No movies under this section",
+  "@noMovies": {
+    "description": "No movies label"
+  },
+  "favoriteMovies": "Favorite movies",
+  "@favoriteMovies": {
+    "description": "favorite movies label"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "languages label"
+  },
+  "feedback": "Feedback",
+  "@feedback": {
+    "description": "feedback label"
+  },
+  "about": "About",
+  "@about": {
+    "description": "about label"
+  },
+  "okay": "Okay",
+  "@okay": {
+    "description": "okay label"
+  },
+  "madeTMDB": "Made with TMDB API with Love",
+  "@madeTMDB": {
+    "description": "made tmdb label"
+  },
+  "favorites": "Favorites",
+  "@favorites": {
+    "description": "favorites label"
+  },
+  "noFavorites": "No favorites added so far",
+  "@noFavorites": {
+    "description": "no favorites label"
+  },
+  "errorLoading": "Error loading",
+  "@errorLoading": {
+    "description": "error loading"
+  },
+  "now": "Now",
+  "@now": {
+    "description": "now label"
+  },
+  "popular": "Popular",
+  "@popular": {
+    "description": "popular label"
+  },
+  "soon": "Soon",
+  "@soon": {
+    "description": "soon label"
+  },
+  "cast": "Cast",
+  "@cast": {
+    "description": "cast label"
+  },
+  "watchTrailers": "Watch Trailers",
+  "@watchTrailers": {
+    "description": "watch trailers label"
+  },
+  "fetchMoviesError": "Could not retrieve any movies with given search term",
+  "@fetchMoviesError": {
+    "description": "fetchMoviesError label"
+  },
+  "failedTmdbAPI": "Failed to connect to TMDB API",
+  "@failedTmdbAPI": {
+    "description": "failedTmdbAPI label"
+  },
+  "failedTmdbInternet": "Failed to connect to Internet",
+  "@failedTmdbInternet": {
+    "description": "failedTmdbInternet label"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "retry label"
+  },
+  "report": "Report",
+  "@report": {
+    "description": "report label"
+  }
+}

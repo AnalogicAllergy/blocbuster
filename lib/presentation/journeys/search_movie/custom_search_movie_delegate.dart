@@ -6,6 +6,7 @@ import 'package:blocbuster/presentation/themes/app_color.dart';
 import 'package:blocbuster/presentation/widgets/app_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // remove the comment for this line
 
 import '../../themes/theme_text.dart';
 
@@ -64,7 +65,7 @@ class CustomSearchDelegate extends SearchDelegate {
                   child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_64.w),
                 child: Text(
-                  "Could not retrieve any movies with given search term",
+                  AppLocalizations.of(context).fetchMoviesError,
                   textAlign: TextAlign.center,
                 ),
               ));
